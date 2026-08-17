@@ -1,0 +1,711 @@
+.
+├── 0_rawdata
+│   ├── decon_iters
+│   │   ├── runPrismST.R
+│   │   └── tmp.ipynb
+│   ├── decon_all_BP3.tsv
+│   ├── decon_all_maxit70.tsv
+│   ├── decon_all.new.tsv
+│   ├── decon_sAll.61.tsv
+│   ├── HSCT_DFBWH_feature_counts.tsv
+│   ├── HSCT_MOFFITT_feature_counts.tsv
+│   ├── prismST_output.maxit1.rds
+│   ├── prismST_output.maxit20.rds
+│   ├── runBPv3.R
+│   ├── runPrismST.R
+│   ├── run_ssGSEA.R
+│   ├── ssgsea_results.raw.tau75.csv
+│   └── tmp.ipynb
+├── 1_DATA
+│   ├── archive
+│   │   ├── 1_combine-data.ipynb
+│   │   └── decon_20250211.rds
+│   ├── 1_combine-data.ipynb
+│   ├── 2_make-counts.ipynb
+│   ├── counts_sQC_gAll_nPlatRegressed.tsv
+│   ├── counts_sQC_gAll_nRaw.tsv
+│   ├── counts_sQC_gALL_nTPM.tsv
+│   ├── counts_sQC_gAll_nVST.tsv
+│   ├── counts_sQC_gTop500mv_nVST.tsv
+│   ├── decon_passQC.new.tsv
+│   ├── decon_passQC.SUB.tsv
+│   ├── decon_passQC.tsv
+│   ├── drug_dates.tsv
+│   ├── histone_list.tsv
+│   ├── metrics_passQC.tsv
+│   ├── sample_meta_passQC.tsv
+│   └── ssgsea_passQC.tsv
+├── Figure1_projectOverview
+│   ├── figures
+│   │   ├── AK_all.pdf
+│   │   ├── COMPS_time.pdf
+│   │   ├── COMPS_upset.pdf
+│   │   ├── COR_all.pdf
+│   │   ├── COR_all.RMX.png
+│   │   ├── DIST_all.pdf
+│   │   └── RIDGE_E-6M.pdf
+│   └── samp_overview.ipynb
+├── Figure2_trajectories
+│   ├── figures
+│   │   ├── Marg_lymphocyte.pdf
+│   │   ├── Marg_monocyte.pdf
+│   │   ├── Marg_neutro.pdf
+│   │   ├── RIVER_All.LEGEND.pdf
+│   │   ├── RIVER_All.pdf
+│   │   ├── RIVER_All.png
+│   │   ├── SUPP_META_virCommonCounts.pdf
+│   │   ├── VIOLIN_lymphocyte.pdf
+│   │   ├── VIOLIN_monocyte.pdf
+│   │   └── VIOLIN_neutrophil.pdf
+│   └── analysis-traj.ipynb
+├── Figure3_aGVHD
+│   ├── archive
+│   │   └── analysis-agvhd_20250213.ipynb
+│   ├── figures
+│   │   ├── aGVHD_corGenes.pdf
+│   │   ├── aGVHD_EHeatmap.plt.png
+│   │   ├── aGVHD_E-ipa.top6.pdf
+│   │   ├── aGVHD_platelet.pdf
+│   │   ├── aGVHD_timing.pdf
+│   │   ├── aGVHD_toprow.pdf
+│   │   ├── cycle_markers_agvhd.pdf
+│   │   ├── G2M_Z_agvhd.pdf
+│   │   ├── histone_markers_agvhd.pdf
+│   │   └── S_Z_agvhd.pdf
+│   ├── modeling
+│   │   ├── STABL_cgvhd_V3
+│   │   │   └── Results CFRNA
+│   │   │       ├── Summary
+│   │   │       └── Training-Validation
+│   │   │           ├── ALasso
+│   │   │           │   ├── Associated weights ALasso.csv
+│   │   │           │   └── Stacked Generalization predictions train ALasso.csv
+│   │   │           ├── ElasticNet
+│   │   │           │   ├── Associated weights ElasticNet.csv
+│   │   │           │   └── Stacked Generalization predictions train ElasticNet.csv
+│   │   │           ├── Lasso
+│   │   │           │   ├── Associated weights Lasso.csv
+│   │   │           │   └── Stacked Generalization predictions train Lasso.csv
+│   │   │           ├── STABL ALasso results on CFRNA
+│   │   │           │   ├── Selected Features
+│   │   │           │   │   └── Selected features.csv
+│   │   │           │   ├── FDR Graph.pdf
+│   │   │           │   ├── FDR table Graph.pdf
+│   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │           │   ├── Max STABL scores.csv
+│   │   │           │   ├── Stability Path.pdf
+│   │   │           │   ├── STABL artificial scores.csv
+│   │   │           │   └── STABL scores.csv
+│   │   │           ├── STABL ElasticNet results on CFRNA
+│   │   │           │   ├── Selected Features
+│   │   │           │   │   └── Selected features.csv
+│   │   │           │   ├── FDR Graph.pdf
+│   │   │           │   ├── FDR table Graph.pdf
+│   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │           │   ├── Max STABL scores.csv
+│   │   │           │   ├── Stability Path.pdf
+│   │   │           │   ├── STABL artificial scores.csv
+│   │   │           │   └── STABL scores.csv
+│   │   │           ├── STABL Lasso results on CFRNA
+│   │   │           │   ├── Selected Features
+│   │   │           │   │   └── Selected features.csv
+│   │   │           │   ├── FDR Graph.pdf
+│   │   │           │   ├── FDR table Graph.pdf
+│   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │           │   ├── Max STABL scores.csv
+│   │   │           │   ├── Stability Path.pdf
+│   │   │           │   ├── STABL artificial scores.csv
+│   │   │           │   └── STABL scores.csv
+│   │   │           ├── ALasso coefficients CFRNA.csv
+│   │   │           ├── ElasticNet coefficients CFRNA.csv
+│   │   │           └── Lasso coefficients CFRNA.csv
+│   │   ├── lasso_loocv_predictions.csv
+│   │   ├── lasso_test_auc_results.csv
+│   │   ├── modeling_counts_cpm_tmm_log.csv
+│   │   ├── modeling.ipynb
+│   │   ├── modeling_metadata.csv
+│   │   └── modeling.py
+│   ├── outputs
+│   │   ├── aGVHD_E-ipaIN.csv
+│   │   ├── agvhd_ipa_out.txt
+│   │   ├── DESEQ2_agvhdE.LONG.rds
+│   │   ├── DESEQ2_agvhdE.rds
+│   │   ├── E_agvhdvsall.ipaOUT.txt
+│   │   ├── hsct_cfrna_DataS1.csv
+│   │   └── hsct_cfrna_DataS2.csv
+│   └── analysis-agvhd.ipynb
+├── Figure4_LGVHD
+│   ├── archive
+│   │   ├── modeling_old
+│   │   │   ├── Benchmarksresults
+│   │   │   │   └── Results CFRNA
+│   │   │   │       ├── Summary
+│   │   │   │       └── Training CV
+│   │   │   │           ├── ALasso
+│   │   │   │           │   ├── Associated weights ALasso.csv
+│   │   │   │           │   └── Stacked Generalization predictions ALasso.csv
+│   │   │   │           ├── Lasso
+│   │   │   │           │   ├── Associated weights Lasso.csv
+│   │   │   │           │   └── Stacked Generalization predictions Lasso.csv
+│   │   │   │           ├── STABL ALasso results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   ├── ENSG00000104388.15.pdf
+│   │   │   │           │   │   ├── ENSG00000104447.13.pdf
+│   │   │   │           │   │   ├── ENSG00000105778.19.pdf
+│   │   │   │           │   │   ├── ENSG00000132676.16.pdf
+│   │   │   │           │   │   ├── ENSG00000168092.14.pdf
+│   │   │   │           │   │   ├── ENSG00000179832.18.pdf
+│   │   │   │           │   │   ├── ENSG00000187010.21.pdf
+│   │   │   │           │   │   ├── ENSG00000265354.4.pdf
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           └── STABL Lasso results on CFRNA
+│   │   │   │               ├── Selected Features
+│   │   │   │               │   ├── ENSG00000079335.20.pdf
+│   │   │   │               │   ├── ENSG00000104388.15.pdf
+│   │   │   │               │   ├── ENSG00000104447.13.pdf
+│   │   │   │               │   ├── ENSG00000132676.16.pdf
+│   │   │   │               │   ├── ENSG00000168092.14.pdf
+│   │   │   │               │   ├── ENSG00000179832.18.pdf
+│   │   │   │               │   ├── ENSG00000187010.21.pdf
+│   │   │   │               │   ├── ENSG00000265354.4.pdf
+│   │   │   │               │   └── Selected features.csv
+│   │   │   │               ├── FDR Graph.pdf
+│   │   │   │               ├── FDR table Graph.pdf
+│   │   │   │               ├── Max STABL artificial scores.csv
+│   │   │   │               ├── Max STABL scores.csv
+│   │   │   │               ├── Stability Path.pdf
+│   │   │   │               ├── STABL artificial scores.csv
+│   │   │   │               └── STABL scores.csv
+│   │   │   ├── STABL_cgvhd_V1
+│   │   │   │   └── Results CFRNA
+│   │   │   │       ├── Summary
+│   │   │   │       │   └── Scores on Validation.csv
+│   │   │   │       └── Training-Validation
+│   │   │   │           ├── ALasso
+│   │   │   │           │   ├── ALasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── ALasso PR Curve.pdf
+│   │   │   │           │   ├── ALasso predictions.csv
+│   │   │   │           │   ├── ALasso ROC.pdf
+│   │   │   │           │   ├── Associated weights ALasso.csv
+│   │   │   │           │   └── Stacked Generalization predictions train ALasso.csv
+│   │   │   │           ├── EF ALasso
+│   │   │   │           │   ├── EF ALasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── EF ALasso PR Curve.pdf
+│   │   │   │           │   ├── EF ALasso predictions.csv
+│   │   │   │           │   └── EF ALasso ROC.pdf
+│   │   │   │           ├── EF ElasticNet
+│   │   │   │           │   ├── EF ElasticNet Boxplot of median predictions.pdf
+│   │   │   │           │   ├── EF ElasticNet PR Curve.pdf
+│   │   │   │           │   ├── EF ElasticNet predictions.csv
+│   │   │   │           │   └── EF ElasticNet ROC.pdf
+│   │   │   │           ├── EF Lasso
+│   │   │   │           │   ├── EF Lasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── EF Lasso PR Curve.pdf
+│   │   │   │           │   ├── EF Lasso predictions.csv
+│   │   │   │           │   └── EF Lasso ROC.pdf
+│   │   │   │           ├── ElasticNet
+│   │   │   │           │   ├── Associated weights ElasticNet.csv
+│   │   │   │           │   ├── ElasticNet Boxplot of median predictions.pdf
+│   │   │   │           │   ├── ElasticNet PR Curve.pdf
+│   │   │   │           │   ├── ElasticNet predictions.csv
+│   │   │   │           │   ├── ElasticNet ROC.pdf
+│   │   │   │           │   └── Stacked Generalization predictions train ElasticNet.csv
+│   │   │   │           ├── Lasso
+│   │   │   │           │   ├── Associated weights Lasso.csv
+│   │   │   │           │   ├── Lasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── Lasso PR Curve.pdf
+│   │   │   │           │   ├── Lasso predictions.csv
+│   │   │   │           │   ├── Lasso ROC.pdf
+│   │   │   │           │   └── Stacked Generalization predictions train Lasso.csv
+│   │   │   │           ├── p-values
+│   │   │   │           │   ├── Average Precision.csv
+│   │   │   │           │   └── ROC AUC.csv
+│   │   │   │           ├── STABL ALasso
+│   │   │   │           │   ├── STABL ALasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── STABL ALasso PR Curve.pdf
+│   │   │   │           │   ├── STABL ALasso predictions.csv
+│   │   │   │           │   └── STABL ALasso ROC.pdf
+│   │   │   │           ├── STABL ALasso results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   ├── ENSG00000033327.13.pdf
+│   │   │   │           │   │   ├── ENSG00000100393.14.pdf
+│   │   │   │           │   │   ├── ENSG00000104447.13.pdf
+│   │   │   │           │   │   ├── ENSG00000119509.13.pdf
+│   │   │   │           │   │   ├── ENSG00000122565.19.pdf
+│   │   │   │           │   │   ├── ENSG00000129925.11.pdf
+│   │   │   │           │   │   ├── ENSG00000134884.15.pdf
+│   │   │   │           │   │   ├── ENSG00000155090.15.pdf
+│   │   │   │           │   │   ├── ENSG00000165507.9.pdf
+│   │   │   │           │   │   ├── ENSG00000168014.18.pdf
+│   │   │   │           │   │   ├── ENSG00000168036.18.pdf
+│   │   │   │           │   │   ├── ENSG00000250722.6.pdf
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           ├── STABL ElasticNet
+│   │   │   │           │   ├── STABL ElasticNet Boxplot of median predictions.pdf
+│   │   │   │           │   ├── STABL ElasticNet PR Curve.pdf
+│   │   │   │           │   ├── STABL ElasticNet predictions.csv
+│   │   │   │           │   └── STABL ElasticNet ROC.pdf
+│   │   │   │           ├── STABL ElasticNet results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   ├── ENSG00000033327.13.pdf
+│   │   │   │           │   │   ├── ENSG00000100393.14.pdf
+│   │   │   │           │   │   ├── ENSG00000104447.13.pdf
+│   │   │   │           │   │   ├── ENSG00000119509.13.pdf
+│   │   │   │           │   │   ├── ENSG00000132514.14.pdf
+│   │   │   │           │   │   ├── ENSG00000155090.15.pdf
+│   │   │   │           │   │   ├── ENSG00000165507.9.pdf
+│   │   │   │           │   │   ├── ENSG00000168036.18.pdf
+│   │   │   │           │   │   ├── ENSG00000180263.14.pdf
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           ├── STABL Lasso
+│   │   │   │           │   ├── STABL Lasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── STABL Lasso PR Curve.pdf
+│   │   │   │           │   ├── STABL Lasso predictions.csv
+│   │   │   │           │   └── STABL Lasso ROC.pdf
+│   │   │   │           ├── STABL Lasso results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   ├── ENSG00000033327.13.pdf
+│   │   │   │           │   │   ├── ENSG00000070495.15.pdf
+│   │   │   │           │   │   ├── ENSG00000072864.16.pdf
+│   │   │   │           │   │   ├── ENSG00000074266.22.pdf
+│   │   │   │           │   │   ├── ENSG00000076555.15.pdf
+│   │   │   │           │   │   ├── ENSG00000087338.5.pdf
+│   │   │   │           │   │   ├── ENSG00000100154.14.pdf
+│   │   │   │           │   │   ├── ENSG00000100393.14.pdf
+│   │   │   │           │   │   ├── ENSG00000100603.14.pdf
+│   │   │   │           │   │   ├── ENSG00000101150.18.pdf
+│   │   │   │           │   │   ├── ENSG00000104447.13.pdf
+│   │   │   │           │   │   ├── ENSG00000106459.15.pdf
+│   │   │   │           │   │   ├── ENSG00000107672.15.pdf
+│   │   │   │           │   │   ├── ENSG00000113369.9.pdf
+│   │   │   │           │   │   ├── ENSG00000117115.13.pdf
+│   │   │   │           │   │   ├── ENSG00000119509.13.pdf
+│   │   │   │           │   │   ├── ENSG00000119720.18.pdf
+│   │   │   │           │   │   ├── ENSG00000122565.19.pdf
+│   │   │   │           │   │   ├── ENSG00000126773.13.pdf
+│   │   │   │           │   │   ├── ENSG00000129925.11.pdf
+│   │   │   │           │   │   ├── ENSG00000132514.14.pdf
+│   │   │   │           │   │   ├── ENSG00000134884.15.pdf
+│   │   │   │           │   │   ├── ENSG00000135823.14.pdf
+│   │   │   │           │   │   ├── ENSG00000135828.11.pdf
+│   │   │   │           │   │   ├── ENSG00000139641.13.pdf
+│   │   │   │           │   │   ├── ENSG00000140450.9.pdf
+│   │   │   │           │   │   ├── ENSG00000140471.17.pdf
+│   │   │   │           │   │   ├── ENSG00000141367.12.pdf
+│   │   │   │           │   │   ├── ENSG00000142459.8.pdf
+│   │   │   │           │   │   ├── ENSG00000142546.14.pdf
+│   │   │   │           │   │   ├── ENSG00000147592.9.pdf
+│   │   │   │           │   │   ├── ENSG00000155090.15.pdf
+│   │   │   │           │   │   ├── ENSG00000156273.16.pdf
+│   │   │   │           │   │   ├── ENSG00000157014.11.pdf
+│   │   │   │           │   │   ├── ENSG00000157654.19.pdf
+│   │   │   │           │   │   ├── ENSG00000161980.6.pdf
+│   │   │   │           │   │   ├── ENSG00000162695.12.pdf
+│   │   │   │           │   │   ├── ENSG00000163811.12.pdf
+│   │   │   │           │   │   ├── ENSG00000165507.9.pdf
+│   │   │   │           │   │   ├── ENSG00000168014.18.pdf
+│   │   │   │           │   │   ├── ENSG00000168036.18.pdf
+│   │   │   │           │   │   ├── ENSG00000168092.14.pdf
+│   │   │   │           │   │   ├── ENSG00000168813.17.pdf
+│   │   │   │           │   │   ├── ENSG00000171067.11.pdf
+│   │   │   │           │   │   ├── ENSG00000178695.6.pdf
+│   │   │   │           │   │   ├── ENSG00000180263.14.pdf
+│   │   │   │           │   │   ├── ENSG00000181982.19.pdf
+│   │   │   │           │   │   ├── ENSG00000187010.21.pdf
+│   │   │   │           │   │   ├── ENSG00000189159.16.pdf
+│   │   │   │           │   │   ├── ENSG00000196418.13.pdf
+│   │   │   │           │   │   ├── ENSG00000197283.18.pdf
+│   │   │   │           │   │   ├── ENSG00000197312.12.pdf
+│   │   │   │           │   │   ├── ENSG00000230006.7.pdf
+│   │   │   │           │   │   ├── ENSG00000237550.5.pdf
+│   │   │   │           │   │   ├── ENSG00000250722.6.pdf
+│   │   │   │           │   │   ├── ENSG00000265354.4.pdf
+│   │   │   │           │   │   ├── ENSG00000274290.3.pdf
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           ├── ALasso coefficients CFRNA.csv
+│   │   │   │           ├── EF ALasso coefficients.csv
+│   │   │   │           ├── EF ElasticNet coefficients.csv
+│   │   │   │           ├── EF Lasso coefficients.csv
+│   │   │   │           ├── ElasticNet coefficients CFRNA.csv
+│   │   │   │           ├── Lasso coefficients CFRNA.csv
+│   │   │   │           ├── Scores on Validation.csv
+│   │   │   │           ├── STABL ALasso coefficients.csv
+│   │   │   │           ├── STABL ElasticNet coefficients.csv
+│   │   │   │           └── STABL Lasso coefficients.csv
+│   │   │   ├── STABL_cgvhd_V2
+│   │   │   │   └── Results CFRNA
+│   │   │   │       ├── Summary
+│   │   │   │       │   └── Scores on Validation.csv
+│   │   │   │       └── Training-Validation
+│   │   │   │           ├── ALasso
+│   │   │   │           │   ├── ALasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── ALasso PR Curve.pdf
+│   │   │   │           │   ├── ALasso predictions.csv
+│   │   │   │           │   ├── ALasso ROC.pdf
+│   │   │   │           │   ├── Associated weights ALasso.csv
+│   │   │   │           │   └── Stacked Generalization predictions train ALasso.csv
+│   │   │   │           ├── ElasticNet
+│   │   │   │           │   ├── Associated weights ElasticNet.csv
+│   │   │   │           │   ├── ElasticNet Boxplot of median predictions.pdf
+│   │   │   │           │   ├── ElasticNet PR Curve.pdf
+│   │   │   │           │   ├── ElasticNet predictions.csv
+│   │   │   │           │   ├── ElasticNet ROC.pdf
+│   │   │   │           │   └── Stacked Generalization predictions train ElasticNet.csv
+│   │   │   │           ├── Lasso
+│   │   │   │           │   ├── Associated weights Lasso.csv
+│   │   │   │           │   ├── Lasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── Lasso PR Curve.pdf
+│   │   │   │           │   ├── Lasso predictions.csv
+│   │   │   │           │   ├── Lasso ROC.pdf
+│   │   │   │           │   └── Stacked Generalization predictions train Lasso.csv
+│   │   │   │           ├── p-values
+│   │   │   │           │   ├── Average Precision.csv
+│   │   │   │           │   └── ROC AUC.csv
+│   │   │   │           ├── STABL ALasso
+│   │   │   │           │   ├── STABL ALasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── STABL ALasso PR Curve.pdf
+│   │   │   │           │   ├── STABL ALasso predictions.csv
+│   │   │   │           │   └── STABL ALasso ROC.pdf
+│   │   │   │           ├── STABL ALasso results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   ├── ENSG00000033327.13.pdf
+│   │   │   │           │   │   ├── ENSG00000100393.14.pdf
+│   │   │   │           │   │   ├── ENSG00000104447.13.pdf
+│   │   │   │           │   │   ├── ENSG00000119509.13.pdf
+│   │   │   │           │   │   ├── ENSG00000122565.19.pdf
+│   │   │   │           │   │   ├── ENSG00000129925.11.pdf
+│   │   │   │           │   │   ├── ENSG00000134884.15.pdf
+│   │   │   │           │   │   ├── ENSG00000155090.15.pdf
+│   │   │   │           │   │   ├── ENSG00000165507.9.pdf
+│   │   │   │           │   │   ├── ENSG00000168014.18.pdf
+│   │   │   │           │   │   ├── ENSG00000168036.18.pdf
+│   │   │   │           │   │   ├── ENSG00000250722.6.pdf
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           ├── STABL ElasticNet
+│   │   │   │           │   ├── STABL ElasticNet Boxplot of median predictions.pdf
+│   │   │   │           │   ├── STABL ElasticNet PR Curve.pdf
+│   │   │   │           │   ├── STABL ElasticNet predictions.csv
+│   │   │   │           │   └── STABL ElasticNet ROC.pdf
+│   │   │   │           ├── STABL ElasticNet results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   ├── ENSG00000033327.13.pdf
+│   │   │   │           │   │   ├── ENSG00000100393.14.pdf
+│   │   │   │           │   │   ├── ENSG00000104447.13.pdf
+│   │   │   │           │   │   ├── ENSG00000119509.13.pdf
+│   │   │   │           │   │   ├── ENSG00000132514.14.pdf
+│   │   │   │           │   │   ├── ENSG00000155090.15.pdf
+│   │   │   │           │   │   ├── ENSG00000165507.9.pdf
+│   │   │   │           │   │   ├── ENSG00000168036.18.pdf
+│   │   │   │           │   │   ├── ENSG00000180263.14.pdf
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           ├── STABL Lasso
+│   │   │   │           │   ├── STABL Lasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── STABL Lasso PR Curve.pdf
+│   │   │   │           │   ├── STABL Lasso predictions.csv
+│   │   │   │           │   └── STABL Lasso ROC.pdf
+│   │   │   │           ├── STABL Lasso results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   ├── ENSG00000033327.13.pdf
+│   │   │   │           │   │   ├── ENSG00000070495.15.pdf
+│   │   │   │           │   │   ├── ENSG00000072864.16.pdf
+│   │   │   │           │   │   ├── ENSG00000074266.22.pdf
+│   │   │   │           │   │   ├── ENSG00000076555.15.pdf
+│   │   │   │           │   │   ├── ENSG00000087338.5.pdf
+│   │   │   │           │   │   ├── ENSG00000100154.14.pdf
+│   │   │   │           │   │   ├── ENSG00000100393.14.pdf
+│   │   │   │           │   │   ├── ENSG00000100603.14.pdf
+│   │   │   │           │   │   ├── ENSG00000101150.18.pdf
+│   │   │   │           │   │   ├── ENSG00000104447.13.pdf
+│   │   │   │           │   │   ├── ENSG00000106459.15.pdf
+│   │   │   │           │   │   ├── ENSG00000107672.15.pdf
+│   │   │   │           │   │   ├── ENSG00000113369.9.pdf
+│   │   │   │           │   │   ├── ENSG00000117115.13.pdf
+│   │   │   │           │   │   ├── ENSG00000119509.13.pdf
+│   │   │   │           │   │   ├── ENSG00000119720.18.pdf
+│   │   │   │           │   │   ├── ENSG00000122565.19.pdf
+│   │   │   │           │   │   ├── ENSG00000126773.13.pdf
+│   │   │   │           │   │   ├── ENSG00000129925.11.pdf
+│   │   │   │           │   │   ├── ENSG00000132514.14.pdf
+│   │   │   │           │   │   ├── ENSG00000134884.15.pdf
+│   │   │   │           │   │   ├── ENSG00000135823.14.pdf
+│   │   │   │           │   │   ├── ENSG00000135828.11.pdf
+│   │   │   │           │   │   ├── ENSG00000139641.13.pdf
+│   │   │   │           │   │   ├── ENSG00000140450.9.pdf
+│   │   │   │           │   │   ├── ENSG00000140471.17.pdf
+│   │   │   │           │   │   ├── ENSG00000141367.12.pdf
+│   │   │   │           │   │   ├── ENSG00000142459.8.pdf
+│   │   │   │           │   │   ├── ENSG00000142546.14.pdf
+│   │   │   │           │   │   ├── ENSG00000147592.9.pdf
+│   │   │   │           │   │   ├── ENSG00000155090.15.pdf
+│   │   │   │           │   │   ├── ENSG00000156273.16.pdf
+│   │   │   │           │   │   ├── ENSG00000157014.11.pdf
+│   │   │   │           │   │   ├── ENSG00000157654.19.pdf
+│   │   │   │           │   │   ├── ENSG00000161980.6.pdf
+│   │   │   │           │   │   ├── ENSG00000162695.12.pdf
+│   │   │   │           │   │   ├── ENSG00000163811.12.pdf
+│   │   │   │           │   │   ├── ENSG00000165507.9.pdf
+│   │   │   │           │   │   ├── ENSG00000168014.18.pdf
+│   │   │   │           │   │   ├── ENSG00000168036.18.pdf
+│   │   │   │           │   │   ├── ENSG00000168092.14.pdf
+│   │   │   │           │   │   ├── ENSG00000168813.17.pdf
+│   │   │   │           │   │   ├── ENSG00000171067.11.pdf
+│   │   │   │           │   │   ├── ENSG00000178695.6.pdf
+│   │   │   │           │   │   ├── ENSG00000180263.14.pdf
+│   │   │   │           │   │   ├── ENSG00000181982.19.pdf
+│   │   │   │           │   │   ├── ENSG00000187010.21.pdf
+│   │   │   │           │   │   ├── ENSG00000189159.16.pdf
+│   │   │   │           │   │   ├── ENSG00000196418.13.pdf
+│   │   │   │           │   │   ├── ENSG00000197283.18.pdf
+│   │   │   │           │   │   ├── ENSG00000197312.12.pdf
+│   │   │   │           │   │   ├── ENSG00000230006.7.pdf
+│   │   │   │           │   │   ├── ENSG00000237550.5.pdf
+│   │   │   │           │   │   ├── ENSG00000250722.6.pdf
+│   │   │   │           │   │   ├── ENSG00000265354.4.pdf
+│   │   │   │           │   │   ├── ENSG00000274290.3.pdf
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           ├── ALasso coefficients CFRNA.csv
+│   │   │   │           ├── ElasticNet coefficients CFRNA.csv
+│   │   │   │           ├── Lasso coefficients CFRNA.csv
+│   │   │   │           ├── Scores on Validation.csv
+│   │   │   │           ├── STABL ALasso coefficients.csv
+│   │   │   │           ├── STABL ElasticNet coefficients.csv
+│   │   │   │           └── STABL Lasso coefficients.csv
+│   │   │   ├── STABL_cgvhd_V3
+│   │   │   │   └── Results CFRNA
+│   │   │   │       ├── Summary
+│   │   │   │       │   └── Scores on Validation.csv
+│   │   │   │       └── Training-Validation
+│   │   │   │           ├── ALasso
+│   │   │   │           │   ├── ALasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── ALasso PR Curve.pdf
+│   │   │   │           │   ├── ALasso predictions.csv
+│   │   │   │           │   ├── ALasso ROC.pdf
+│   │   │   │           │   ├── Associated weights ALasso.csv
+│   │   │   │           │   └── Stacked Generalization predictions train ALasso.csv
+│   │   │   │           ├── ElasticNet
+│   │   │   │           │   ├── Associated weights ElasticNet.csv
+│   │   │   │           │   ├── ElasticNet Boxplot of median predictions.pdf
+│   │   │   │           │   ├── ElasticNet PR Curve.pdf
+│   │   │   │           │   ├── ElasticNet predictions.csv
+│   │   │   │           │   ├── ElasticNet ROC.pdf
+│   │   │   │           │   └── Stacked Generalization predictions train ElasticNet.csv
+│   │   │   │           ├── Lasso
+│   │   │   │           │   ├── Associated weights Lasso.csv
+│   │   │   │           │   ├── Lasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── Lasso PR Curve.pdf
+│   │   │   │           │   ├── Lasso predictions.csv
+│   │   │   │           │   ├── Lasso ROC.pdf
+│   │   │   │           │   └── Stacked Generalization predictions train Lasso.csv
+│   │   │   │           ├── p-values
+│   │   │   │           │   ├── Average Precision.csv
+│   │   │   │           │   └── ROC AUC.csv
+│   │   │   │           ├── STABL ALasso
+│   │   │   │           │   ├── STABL ALasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── STABL ALasso PR Curve.pdf
+│   │   │   │           │   ├── STABL ALasso predictions.csv
+│   │   │   │           │   └── STABL ALasso ROC.pdf
+│   │   │   │           ├── STABL ALasso results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   ├── ENSG00000071054.16.pdf
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           ├── STABL ElasticNet
+│   │   │   │           │   ├── STABL ElasticNet Boxplot of median predictions.pdf
+│   │   │   │           │   ├── STABL ElasticNet PR Curve.pdf
+│   │   │   │           │   ├── STABL ElasticNet predictions.csv
+│   │   │   │           │   └── STABL ElasticNet ROC.pdf
+│   │   │   │           ├── STABL ElasticNet results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   ├── ENSG00000033327.13.pdf
+│   │   │   │           │   │   ├── ENSG00000104447.13.pdf
+│   │   │   │           │   │   ├── ENSG00000165507.9.pdf
+│   │   │   │           │   │   ├── ENSG00000168036.18.pdf
+│   │   │   │           │   │   ├── ENSG00000180263.14.pdf
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           ├── STABL Lasso
+│   │   │   │           │   ├── STABL Lasso Boxplot of median predictions.pdf
+│   │   │   │           │   ├── STABL Lasso PR Curve.pdf
+│   │   │   │           │   ├── STABL Lasso predictions.csv
+│   │   │   │           │   └── STABL Lasso ROC.pdf
+│   │   │   │           ├── STABL Lasso results on CFRNA
+│   │   │   │           │   ├── Selected Features
+│   │   │   │           │   │   └── Selected features.csv
+│   │   │   │           │   ├── FDR Graph.pdf
+│   │   │   │           │   ├── FDR table Graph.pdf
+│   │   │   │           │   ├── Max STABL artificial scores.csv
+│   │   │   │           │   ├── Max STABL scores.csv
+│   │   │   │           │   ├── Stability Path.pdf
+│   │   │   │           │   ├── STABL artificial scores.csv
+│   │   │   │           │   └── STABL scores.csv
+│   │   │   │           ├── ALasso coefficients CFRNA.csv
+│   │   │   │           ├── ElasticNet coefficients CFRNA.csv
+│   │   │   │           ├── Lasso coefficients CFRNA.csv
+│   │   │   │           ├── Scores on Validation.csv
+│   │   │   │           ├── STABL ALasso coefficients.csv
+│   │   │   │           └── STABL ElasticNet coefficients.csv
+│   │   │   ├── counts_cpm_tmm_log.csv
+│   │   │   ├── counts_vst_test.csv
+│   │   │   ├── counts_vst_train.csv
+│   │   │   ├── features_STABL.csv
+│   │   │   ├── lasso_test_auc_results.csv
+│   │   │   ├── metadata_cgvhd.csv
+│   │   │   ├── metadata.csv
+│   │   │   ├── runSTABL_V1.ipynb
+│   │   │   ├── runSTABL_V2.ipynb
+│   │   │   ├── runSTABL_V3.ipynb
+│   │   │   ├── selected_features.csv
+│   │   │   ├── test_df.csv
+│   │   │   ├── training_df.csv
+│   │   │   ├── train_results.csv
+│   │   │   ├── train_results_STABL.csv
+│   │   │   ├── valid_results.csv
+│   │   │   └── valid_results_STABL.csv
+│   │   ├── analysis-cGVHD.TMP.ipynb
+│   │   ├── analysis-timing.ipynb
+│   │   ├── analysis-tmp.ipynb
+│   │   └── timing.ipynb
+│   ├── figures
+│   │   ├── cGVHD_DEND_BOX.pdf
+│   │   ├── cGVHD_FEATURES.pdf
+│   │   ├── cGVHD_LEGEND.pdf
+│   │   ├── cGVHD_MODELING.pdf
+│   │   ├── cGVHD_NK_BOX.pdf
+│   │   ├── cGVHD_ROC.pdf
+│   │   ├── cGVHD_SCORES.pdf
+│   │   ├── cGVHD_timing.pdf
+│   │   ├── cGVHD_toprow.pdf
+│   │   ├── cGVHD_VOLCANO.plt.pdf
+│   │   └── KM_curve_MODEL.png
+│   ├── modeling
+│   │   ├── classifier_scores.csv
+│   │   ├── counts_vst_test.csv
+│   │   ├── counts_vst_train.csv
+│   │   ├── lasso_test_auc_results.csv
+│   │   ├── modeling_counts_cpm_tmm_log.csv
+│   │   ├── modeling.ipynb
+│   │   ├── modeling_metadata.csv
+│   │   ├── selected_features.csv
+│   │   ├── test_df.csv
+│   │   └── training_df.csv
+│   ├── outputs
+│   │   ├── cGVHD-ipaIN.csv
+│   │   ├── cGVHD-model.rds
+│   │   ├── DESEQ2_cgvhd.MODEL.rds
+│   │   ├── DESEQ2_cgvhd.rds
+│   │   └── hsct_cfrna_DataS3.csv
+│   └── analysis-LGVHD.ipynb
+├── Figure5_MCCTaper
+│   ├── figures
+│   │   ├── BOXLINE_both.pdf
+│   │   ├── LINE_GENE.pdf
+│   │   ├── MCC_all.bottom.pdf
+│   │   ├── MCC_all.top.pdf
+│   │   ├── MCC_FEATURES.pdf
+│   │   ├── MCC_ROC.pdf
+│   │   ├── MCC_VOLCANO.plt.pdf
+│   │   └── timing_density.pdf
+│   ├── modeling
+│   │   ├── classifier_scores.csv
+│   │   ├── lasso_loocv_predictions.csv
+│   │   ├── lasso_test_auc_results.csv
+│   │   ├── modeling2.ipynb
+│   │   ├── modeling_counts_cpm_tmm_log.csv
+│   │   ├── modeling.ipynb
+│   │   ├── modeling_metadata.csv
+│   │   └── selected_features.csv
+│   ├── outputs
+│   │   ├── DESEQ2_taper_pw.rds
+│   │   └── hsct_cfrna_DataS4.csv
+│   └── analysis-taper.ipynb
+├── Figure6_overlap
+│   ├── A2M
+│   │   ├── template_umap_A2M.png
+│   │   ├── umap_highlighted_cells.png
+│   │   └── umap_highlighted_tissues.png
+│   ├── figures
+│   │   ├── KM_curve_DFCI.pdf
+│   │   ├── KM_curve_MCC.pdf
+│   │   ├── Model_selections.pdf
+│   │   ├── OVERLAP_RHD_CCL21.pdf
+│   │   ├── OVERLAP_score.pdf
+│   │   ├── OVERLAP_score.RMX.png
+│   │   ├── OVERLAP_toprow.pdf
+│   │   ├── RHD_CCL21_counts.pdf
+│   │   └── SCORE_ROC.pdf
+│   ├── overlap.ipynb
+│   ├── plot_gvhd.ipynb
+│   ├── plot_tabsap_counts.ipynb
+│   ├── tabsap.ipynb
+│   ├── template_umap_A2M.png
+│   ├── template_umap_highlighted_cells.ymp.png
+│   ├── umap_highlighted_cells.png
+│   ├── umap_highlighted_cells.TMP.png
+│   ├── umap_RHD.png
+│   └── unique_tissues.txt
+├── functions.R
+├── gencode.biotype.name.key.tsv
+├── genes_to_exlude.tsv
+├── structure.txt
+└── theme_ggplot_cfrna.R

@@ -1,0 +1,65 @@
+adipose tissue
+thymus
+trachea
+blood
+ascending colon
+bladder organ
+ileum
+cardiac ventricle
+spleen
+left ovary
+exocrine pancreas
+muscle of abdomen
+submandibular gland
+skin of body
+muscle of pelvic diaphragm
+prostate gland
+bone marrow
+coronary artery
+lung
+mammary gland
+parotid gland
+testis
+lymph node
+aorta
+endocrine pancreas
+retinal neural layer
+crista ampullaris
+sclera
+subcutaneous adipose tissue
+duodenum
+sigmoid colon
+eye
+utricle of membranous labyrinth
+large intestine
+anterior part of tongue
+myometrium
+mucosa of stomach
+liver
+anterior segment of eyeball
+endometrium
+small intestine
+skin of abdomen
+right cardiac atrium
+right ovary
+stomach
+posterior part of tongue
+stomach smooth muscle
+brown adipose tissue
+skin of chest
+heart right ventricle
+inguinal lymph node
+conjunctiva
+heart
+kidney
+posterior segment of eyeball
+buccal mucosa
+vasculature
+cardiac atrium
+thoracic aorta
+mesenteric lymph node
+sublingual gland
+cornea
+lacrimal gland
+jejunum
+eyelid

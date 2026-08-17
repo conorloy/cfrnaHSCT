@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+.ipynb_checkpoints/
+*.csv
+*.h5ad
+data/
+1_DATA/*
+*.rds
